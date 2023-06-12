@@ -1,0 +1,153 @@
+.main-landing-container {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* border: 1px solid gray; */
+  gap: 0.5rem;
+}
+
+.landing-container,
+.gif_container {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  /* justify-content: center; */
+  /* border: 0.4rem solid rgb(251, 57, 57); */
+}
+
+/* container  */
+
+.content {
+  /* border: 0.4rem solid rgb(5, 255, 1); */
+  box-shadow: 0.7px 0.2px 1.5px 1.7px rgba(0, 0, 0, 0.418);
+  background-image: linear-gradient(skyblue, orange);
+  /* background-color: rgb(236, 253, 239); */
+  border-radius: 10%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: inherit;
+  align-items: center;
+}
+
+.logo {
+  /* border: 0.4rem solid rgb(7, 248, 240); */
+  width: 35%;
+  /* background-color: aqua; */
+  /* border-radius: 7%; */
+}
+
+h1 {
+  margin: -8px 0;
+  border-bottom: 2px double #707070;
+}
+
+.landing-text {
+  /* margin-top: 10px; */
+  width: 70%;
+  margin: 40px 0px;
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  /* border: 0.4rem solid rgb(97, 13, 13); */
+}
+
+.landing-text div {
+  margin-top: -15px;
+  width: 100%;
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.landing-text input {
+  width: 90%;
+  border: none;
+  box-shadow: 0.7px 0.2px 1px 1.7px rgba(0, 0, 0, 0.418);
+  /* text-align: left; */
+  border-radius: 0.4rem;
+  padding: 10px 0px;
+  padding-left: 10px;
+  padding-right: -10px;
+}
+
+.landing-text input:hover {
+  cursor: pointer;
+  background-color: #e1e1e1;
+}
+
+.landing-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 0.4rem solid blueviolet; */
+  margin-bottom: 20px;
+}
+
+.landing-links button {
+  margin-top: -15px;
+  background-color: black;
+  align-self: center;
+  width: 90%;
+  padding: 10px;
+  border-radius: 50px;
+  font-size: large;
+  color: aliceblue;
+}
+
+.landing-links button:hover {
+  cursor: pointer;
+  background-color: rgb(169, 133, 88);
+  box-shadow: 0.7px 0.2px 1px 1.7px rgba(0, 0, 0, 0.418);
+}
+
+.login:hover {
+  cursor: pointer;
+  color: aquamarine;
+}
+
+.text-login {
+  /* border: 0.4rem solid blueviolet; */
+  margin-top: -15px;
+  font-size: 17px;
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+}
+
+.login {
+  font-weight: 600;
+  color: rgb(46, 174, 166);
+}
+
+/* gif  */
+
+.gif_container {
+  justify-content: flex-start;
+}
+
+.inner-gif-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  /* border: 0.4rem solid rgb(2, 103, 255); */
+}
+
+.gif_img {
+  width: 100%;
+  /* border: 0.4rem solid rgb(242, 255, 0); */
+}
+
+@media (max-width: 300px) {
+  .main-landing-container {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+  }
+}
