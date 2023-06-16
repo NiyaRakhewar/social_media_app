@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./styles/Header.css";
 import { MdOutlineExplore } from "react-icons/md";
 // import { FaBookmark, FaHome, FaRocket, FaSearch, FaUser } from "react-icons/fa";
 import { BiSearch, BiHomeAlt, BiSun, BiMoon, BiBookmark } from "react-icons/bi";
 // import { BsBookmark } from "react-icons/bs";
 import web_logo from "../components/images/logo_new.png";
+import { AuthContext } from "../contextFolder/AuthContext";
+import { FeedListContext } from "../contextFolder/FeedListContext";
 export const Header = () => {
+  const { profile } = useContext(AuthContext);
+
+  const { state } = useContext(FeedListContext);
+
+  const filteredData = state.users.find(
+    (user) => user.username === profile.username
+  );
   return (
     <div className="outer-header">
       <div className="logo-div">
@@ -22,7 +31,6 @@ export const Header = () => {
             <FaHome />
             <FaBookmark />
             <FaUser /> */}
-
         <BiSearch className="icon" />
         <MdOutlineExplore className="icon" />
         <BiBookmark className="icon" />
@@ -30,7 +38,13 @@ export const Header = () => {
         {/* <BiRocket /> */}
         <BiHomeAlt className="icon" />
         <BiSun className="icon" />
-        <BiMoon className="icon" />
+        <BiMoon className="icon" />|
+        {
+          <div className="profile-info">
+            <img alt="" src={filteredData.avatar} className="profile-pic" />
+            <h4>{filteredData.firstName}</h4>
+          </div>
+        }
       </div>
     </div>
   );

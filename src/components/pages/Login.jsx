@@ -29,10 +29,10 @@ export const Login = () => {
 
     const data = await response?.json();
 
-    console.log("login page data", data);
+    // console.log("login page data", data);
 
     if (data.encodedToken) {
-      console.log("data", data.encodedToken);
+      // console.log("data", data.encodedToken);
       localStorage.setItem("token", data.encodedToken);
       localStorage.setItem("user", JSON.stringify(data.foundUser));
       navigate("/home");
@@ -40,9 +40,8 @@ export const Login = () => {
       setToken(data.encodedToken);
       setProfile({
         ...profile,
-        firstName: data.foundUser.firstName,
-        lastName: data.foundUser.lastName,
-        email: data.foundUser.email,
+        username: data.foundUser.username,
+        password: data.foundUser.password,
       });
     }
   };

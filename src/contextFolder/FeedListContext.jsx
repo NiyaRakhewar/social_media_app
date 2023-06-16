@@ -12,7 +12,7 @@ export const FeedListProvider = ({ children }) => {
         const data = await response.json();
 
         dispatch({ type: "ALL_FEEDS", payload: data.posts });
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -27,7 +27,7 @@ export const FeedListProvider = ({ children }) => {
         const data = await response.json();
 
         dispatch({ type: "ALL_USERS", payload: data.users });
-        console.log("users", data);
+        // console.log("users", data);
       } catch (error) {
         console.error(error);
       }

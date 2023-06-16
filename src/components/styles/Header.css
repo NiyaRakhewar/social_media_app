@@ -60,3 +60,20 @@
 .icon {
   font-size: x-large;
 }
+
+.profile-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: 5px;
+  color: black;
+}
+
+.profile-pic {
+  width: 80%;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}

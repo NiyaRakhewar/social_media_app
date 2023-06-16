@@ -3,6 +3,7 @@
 export const initialState = {
   feed: [],
   users: [],
+  showPost: false,
 };
 
 export const reducer = (state, action) => {
@@ -12,6 +13,9 @@ export const reducer = (state, action) => {
 
     case "ALL_USERS":
       return { ...state, users: action.payload };
+
+    case "SHOW_POST":
+      return { ...state, showPost: action.payload };
 
     default:
       return state;

@@ -7,18 +7,26 @@ import "../components/styles/Feed.css";
 export const Feeds = () => {
   const { state } = useContext(FeedListContext);
 
-  console.log("state in feeds", state);
+  // console.log("state in feeds", state);
   return (
     <div className="outer-feed-container">
       <div className="inner-feed-container">
-        {state.feed.map((post) => {
+        {state.feed.map((post, i) => {
           const { content, links, likes, comments } = post;
+
+          const userData = state.users.find(
+            (user) => user.username === post.username
+          );
+
+          // console.log("userData avatar", userData.avatar);
           return (
-            <div className="card">
+            <div key={i} className="card">
               <div className="card-info">
                 <div className="card-name-date">
-                  <img src={links} alt="" className="profile-image" />
-                  <h2>firstName lastName </h2>
+                  <img src={userData.avatar} alt="" className="profile-image" />
+                  <h2>
+                    {userData.firstName} {userData.lastName}{" "}
+                  </h2>
                 </div>
                 <SlOptionsVertical />
               </div>

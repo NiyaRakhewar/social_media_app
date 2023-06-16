@@ -7,9 +7,9 @@ export const AuthProvider = ({ children }) => {
   const user = JSON.parse(localStorage.getItem("user")) || "";
   const [token, setToken] = useState(encodedToken || "");
 
-  console.log("encoded AC", encodedToken);
+  // console.log("encoded AC", encodedToken);
 
-  console.log("user AC", user);
+  // console.log("user AC", user);
 
   const [profile, setProfile] = useState({
     username: user.username || "",
