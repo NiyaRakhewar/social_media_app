@@ -28,8 +28,8 @@ export const Landing = () => {
           <div className="landing-links">
             <button onClick={() => navigate("/signup")}>Join Now</button>
             <div className="text-login">
-              <p onClick={() => navigate("/login")}>Already have an account?</p>
-              <p className="login" onClick={() => navigate("/")}>
+              <p>Already have an account?</p>
+              <p className="login" onClick={() => navigate("/login")}>
                 Login !
               </p>
             </div>

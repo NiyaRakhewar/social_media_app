@@ -1,0 +1,31 @@
+.nav {
+  grid-area: nav;
+  /* background-color: rgb(29, 82, 128); */
+  width: 100%;
+  min-height: 65px;
+  max-height: 65px;
+  /* padding: 1rem; */
+}
+
+.main {
+  grid-area: main;
+  /* width: 90%; */
+  /* background-color: rgb(224, 237, 80); */
+  /* margin: 0 5%; */
+}
+
+.aside {
+  grid-area: aside;
+  /* width: 100%; */
+  /* background-color: rgb(245, 23, 215); */
+  /* padding-right: 1rem; */
+  /* margin-right: 3%; */
+}
+
+.layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    "nav nav"
+    "main aside";
+}

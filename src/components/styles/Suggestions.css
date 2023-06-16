@@ -1,0 +1,52 @@
+.outer-suggetion-container {
+  width: 100%;
+  /* border: 2px solid black; */
+}
+
+.inner-suggetion-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  /* border: 2px solid rgb(13, 115, 25); */
+}
+
+.user-card {
+  width: 80%;
+  padding: 0%;
+  color: whitesmoke;
+  background-color: #383a3d;
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.3);
+  /* background-color: whitesmoke; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.profile-img {
+  padding: 0%;
+  width: 50px;
+  height: 50px;
+  border: 0.1px solid rgb(133, 132, 132);
+  border-radius: 50%;
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.3);
+}
+.name {
+  font-size: medium;
+  /* color: rgb(70, 68, 70); */
+  opacity: 0.8;
+}
+
+.follow-btn {
+  width: 20%;
+  padding: 6px 8px;
+  font-weight: 600;
+  border: none;
+  border: 0.1px solid rgb(133, 132, 132);
+  border-radius: 0.4rem;
+  background-image: linear-gradient(skyblue, orange);
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.3);
+}

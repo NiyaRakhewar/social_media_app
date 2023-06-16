@@ -5,15 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>
-);
+import { AuthProvider } from "./contextFolder/AuthContext";
+import { FeedListProvider } from "./contextFolder/FeedListContext";
 
 // Call make Server
 makeServer();
@@ -22,3 +15,16 @@ makeServer();
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <Router>
+      <AuthProvider>
+        <FeedListProvider>
+          <App />
+        </FeedListProvider>
+      </AuthProvider>
+    </Router>
+  </React.StrictMode>
+);

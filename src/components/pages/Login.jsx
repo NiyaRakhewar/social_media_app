@@ -1,9 +1,51 @@
-import React from "react";
+import React, { useContext } from "react";
 import web_logo from "../images/logo_new.png";
 import { useNavigate } from "react-router";
 import "../styles/Login.css";
+import { AuthContext } from "../../contextFolder/AuthContext";
 export const Login = () => {
   const navigate = useNavigate();
+
+  // const location = useLocation();
+  // const from = location.state?.from || "/login";
+
+  // console.log("loc", location);
+
+  // console.log("from", from);
+  // const location = useLocation();
+
+  const { setToken, profile, setProfile } = useContext(AuthContext);
+
+  const handleGuestLogin = async () => {
+    const credentials = {
+      username: "hinatahyuga",
+      password: "hinatasama",
+    };
+
+    const response = await fetch("api/auth/login", {
+      method: "POST",
+      body: JSON.stringify(credentials),
+    });
+
+    const data = await response?.json();
+
+    console.log("login page data", data);
+
+    if (data.encodedToken) {
+      console.log("data", data.encodedToken);
+      localStorage.setItem("token", data.encodedToken);
+      localStorage.setItem("user", JSON.stringify(data.foundUser));
+      navigate("/home");
+      // console.log("location", location?.state?.from?.pathname);
+      setToken(data.encodedToken);
+      setProfile({
+        ...profile,
+        firstName: data.foundUser.firstName,
+        lastName: data.foundUser.lastName,
+        email: data.foundUser.email,
+      });
+    }
+  };
 
   return (
     <div className="main-landing-container">
@@ -30,7 +72,7 @@ export const Login = () => {
           <div className="landing-links">
             <button onClick={() => navigate("/login")}>Login</button>
 
-            <h3 onClick={() => navigate("/")}>Guest Login</h3>
+            <h3 onClick={handleGuestLogin}>Guest Login</h3>
 
             <div className="text-login">
               <p>Don't have an account ?</p>{" "}
