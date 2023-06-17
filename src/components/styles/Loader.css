@@ -1,0 +1,20 @@
+.loader-container {
+  /* background: wheat; */
+  width: 100vw;
+  position: fixed;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 999999999;
+  /* display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center; */
+}
+
+.loader-container img {
+  opacity: 0.9;
+  /* object-fit: cover; */
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}

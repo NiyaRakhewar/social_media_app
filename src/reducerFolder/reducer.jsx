@@ -4,6 +4,10 @@ export const initialState = {
   feed: [],
   users: [],
   showPost: false,
+  isLiked: false,
+  isComment: false,
+  isBookmarked: false,
+  isOption: false,
 };
 
 export const reducer = (state, action) => {
@@ -16,6 +20,9 @@ export const reducer = (state, action) => {
 
     case "SHOW_POST":
       return { ...state, showPost: action.payload };
+
+    case "DROP_FOR_PROFILE":
+      return { ...state, isOption: action.payload };
 
     default:
       return state;

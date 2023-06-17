@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { SlPlus } from "react-icons/sl";
-import { BsFillEmojiLaughingFill, BsFire, BsImage } from "react-icons/bs";
+import { BsEmojiLaughing, BsFire, BsImage } from "react-icons/bs";
 import { MdOutlineFiberNew } from "react-icons/md";
 import { AuthContext } from "../contextFolder/AuthContext";
 import { FeedListContext } from "../contextFolder/FeedListContext";
@@ -107,17 +107,6 @@ export const Post = () => {
                     width: "100%",
                   }}
                 >
-                  {/* <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "space-between",
-                      // gap: "3rem",
-                      border: "1px solid red",
-                      margin: "-10px 0",
-                      width: "30%",
-                    }}
-                  > */}
                   <p
                     className="icn"
                     style={{
@@ -144,7 +133,7 @@ export const Post = () => {
                       borderRadius: "0.3rem",
                     }}
                   >
-                    <BsFillEmojiLaughingFill style={{ fontSize: "x-large" }} />
+                    <BsEmojiLaughing style={{ fontSize: "x-large" }} />
                     Emojis
                   </p>
                   {/* </div> */}
