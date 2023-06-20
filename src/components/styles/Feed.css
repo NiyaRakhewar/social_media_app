@@ -2,74 +2,93 @@
   width: 100%;
   display: flex;
   justify-content: end;
+  /* background-color: rgb(29, 82, 128); */
 }
 
 .inner-feed-container {
-  width: 70%;
+  width: 80%;
   display: grid;
-  gap: 0.7rem;
+  gap: 0.5rem;
 }
 
 .card {
-  display: grid;
-  gap: 1.5rem;
-  padding: 5px;
-  width: 95%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  /* margin-left: -10%; */
+  /* padding: 5px; */
+  width: 100%;
+  max-height: 430px;
   /* color: black; */
   color: whitesmoke;
   /* background-color: whitesmoke; */
   background-color: #383a3d;
-  /* border: 0.1px solid black; */
-  box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.5);
-  grid-template-areas:
-    "card-info"
-    "card-content"
-    "card-image"
-    "card-icons";
+  /* border: 0.1px solid red; */
+  box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.2);
 }
 
 .card-info {
-  grid-area: card-info;
   display: flex;
   justify-content: center;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 5px;
-  gap: 3rem;
-  width: 100%;
+  /* margin-top: 1%; */
+  margin-left: 3%;
+  /* gap: 3rem; */
+  width: 95%;
+  height: 80px;
+  /* border: 0.1px solid red; */
 }
 
 .card-content {
-  grid-area: card-content;
+  /* border: 0.1px solid red; */
   display: flex;
   justify-content: start;
-  align-items: center;
-  margin-left: 8%;
-  width: 70%;
+  text-align: left;
+  /* align-items: center; */
+  flex-wrap: wrap;
+  margin-left: 2%;
+  width: 96%;
+  height: 65%;
+}
+
+.card-content p {
+  /* border: 0.1px solid red; */
+  font-size: 14px;
+  margin-top: 4%;
+  width: 100%;
+  height: 10%;
 }
 .card-image {
-  grid-area: card-image;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  width: 60%;
+  /* justify-content: center;
+  align-items: center; */
+  margin: 0% auto;
+  width: 99%;
+  height: 80%;
   object-fit: cover;
+  /* border: 0.1px solid blue; */
 }
 .card-icons {
-  grid-area: card-icons;
   display: flex;
   padding: 10px 0;
+  /* margin-bottom: -30%; */
+  width: 99.6%;
+  height: 40px;
   justify-content: center;
-  font-size: medium;
+  align-items: center;
+  font-size: large;
   gap: 6rem;
+  /* border: 0.1px solid red; */
 }
 
 .image-tag {
   object-fit: cover;
-  width: 350px;
-  max-height: 200px;
+  /* margin: %; */
+  margin-top: 0%;
+  width: 100%;
+  height: 100%;
 }
 
 .card-name-date {
@@ -77,17 +96,41 @@
   justify-content: start;
   align-items: center;
   gap: 1rem;
-  /* border: 1px solid red; */
   width: 60%;
 }
 
 .profile-image {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: -8px;
   /* box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.3); */
+}
+.username {
+  /* border: 1px solid red; */
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.username h3 {
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* border: 1px solid red; */
+}
+
+.username p {
+  opacity: 0.6;
+  width: 93%;
+  margin: 0;
+  margin-left: 6%;
+  font-size: small;
+  text-align: left;
+  /* border: 1px solid red; */
 }
 
 .card-icons div {
@@ -99,11 +142,12 @@
 
 .card-icons .icn {
   font-size: large;
-  margin-bottom: -2px;
+  /* margin-bottom: -2px; */
 }
-/* display: flex;
-flex-direction: column;
-align-items: end; */
+
+.card-icons .icn p {
+  font-size: small;
+}
 
 .option {
   cursor: pointer;

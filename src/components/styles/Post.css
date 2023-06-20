@@ -15,3 +15,20 @@
   min-width: 20rem;
   z-index: 999;
 }
+
+/* .card-info {
+  width: 70%;
+} */
+
+.card-info-post {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  /* margin-left: 3%; */
+  /* gap: 3rem; */
+  width: 70%;
+  height: 80px;
+  /* border: 0.1px solid red; */
+}

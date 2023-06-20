@@ -4,6 +4,7 @@ export const initialState = {
   feed: [],
   users: [],
   showPost: false,
+  isLatest: true,
   isLiked: false,
   isComment: false,
   isBookmarked: false,
@@ -23,6 +24,9 @@ export const reducer = (state, action) => {
 
     case "DROP_FOR_PROFILE":
       return { ...state, isOption: action.payload };
+
+    case "LATEST":
+      return { ...state, isLatest: action.payload };
 
     default:
       return state;

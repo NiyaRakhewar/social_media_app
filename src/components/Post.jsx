@@ -30,7 +30,7 @@ export const Post = () => {
   return (
     <div className="outer-feed-container">
       <div className="inner-feed-container">
-        <div className="card" style={{ marginBottom: "20px", height: "80px" }}>
+        <div className="card" style={{ marginBottom: "10px", height: "80px" }}>
           <div className="card-info" onClick={clickHandlerNewPost}>
             <div className="card-name-date">
               <img src={userData.avatar} alt="" className="profile-image" />
@@ -42,7 +42,7 @@ export const Post = () => {
           </div>
         </div>
         <div className="card" style={{ marginBottom: "20px", height: "80px" }}>
-          <div className="card-info">
+          <div className="card-info-post">
             <h3
               style={{
                 display: "flex",
@@ -50,6 +50,7 @@ export const Post = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
+              onClick={() => dispatch({ type: "LATEST", payload: true })}
             >
               <MdOutlineFiberNew
                 style={{ border: "0.3px solid white", borderRadius: "0.3rem" }}
@@ -57,7 +58,7 @@ export const Post = () => {
               Latest
             </h3>
             |
-            <h3>
+            <h3 onClick={() => dispatch({ type: "LATEST", payload: false })}>
               <BsFire /> Trending
             </h3>
           </div>
@@ -68,14 +69,14 @@ export const Post = () => {
               <div
                 className="card"
                 style={{
-                  marginBottom: "20px",
                   width: "100%",
+                  height: "180px",
                 }}
               >
                 <div className="card-info">
                   <div
                     className="card-name-date"
-                    style={{ width: "90%", marginBottom: "-40px" }}
+                    style={{ width: "90%", height: "70%" }}
                   >
                     <img
                       src={userData.avatar}
@@ -87,12 +88,13 @@ export const Post = () => {
                       style={{
                         opacity: "0.5",
                         marginLeft: "20px",
-                        marginTop: "2%",
-                        marginBottom: "-5%",
+                        marginTop: "5%",
+                        // marginBottom: "5%",
                         padding: "10px",
-                        height: "100px",
+                        height: "70px",
                         width: "90%",
                         backgroundColor: "#383a3d",
+                        color: "whitesmoke",
                         border: "none",
                       }}
                     />
@@ -105,6 +107,8 @@ export const Post = () => {
                     flexWrap: "wrap",
                     color: "whitesmoke",
                     width: "100%",
+                    height: "20%",
+                    marginTop: "4%",
                   }}
                 >
                   <p
@@ -140,7 +144,7 @@ export const Post = () => {
                   <button
                     onClick={clickHandlerNewPost}
                     style={{
-                      padding: "5px 20px",
+                      padding: "12px 20px",
                       margin: "10px 10px",
                       backgroundColor: "grey",
                       boxShadow: "0px 2px 3px 2px rgba(0, 0, 0, 0.3)",

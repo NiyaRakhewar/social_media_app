@@ -23,7 +23,7 @@ export const Header = () => {
       </div>
       <div className="search-div">
         <div className="search-bar">
-          <input placeholder=" search..." />
+          {/* <input placeholder=" search..." /> */}
         </div>
       </div>
       <div className="icons-div">
@@ -39,7 +39,7 @@ export const Header = () => {
         {/* <BiRocket /> */}
         <BiHomeAlt className="icon" />
         <BiSun className="icon" />
-        <BiMoon className="icon" />|
+        {/* <BiMoon className="icon" /> */}|
         <div
           className="profile-info"
           style={{ display: "flex", flexDirection: "column" }}
