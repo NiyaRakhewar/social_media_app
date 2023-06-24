@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
 
 /**
@@ -8,7 +7,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const posts = [
   {
-    _id: uuid(),
+    _id: "01",
     content: "Sasuke seeks revenge against his brother, Itachi.",
     links:
       "https://res.cloudinary.com/dmmfomgzx/image/upload/v1686768730/sasuke_rv64fq.jpg",
@@ -24,7 +23,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "02",
     content: "Eren seeks freedom from the Titans.",
     links:
       "https://res.cloudinary.com/dmmfomgzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1686765783/eren_nwllde.jpg?_s=public-apps",
@@ -40,7 +39,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "03",
     content:
       "While the Love Hashira continues battling Zohakuten, she earns her Demon Slayer mark",
     links:
@@ -57,7 +56,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "04",
     content: "Light Yagami finds the Death Note and becomes Kira.",
     links:
       "https://res.cloudinary.com/dmmfomgzx/image/upload/v1686768825/deathnote_xiqvri.jpg",
@@ -73,7 +72,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "05",
     content: "Naruto is a leaf village Hokage.",
     links:
       "https://res.cloudinary.com/dmmfomgzx/image/upload/v1686765781/naruto_v2aycj.jpg",
@@ -90,7 +89,7 @@ export const posts = [
   },
 
   {
-    _id: uuid(),
+    _id: "06",
     content: "Luffy is on a journey to become the King of the Pirates.",
     links:
       "https://res.cloudinary.com/dmmfomgzx/image/upload/v1686768780/luffy_io8lv3.png",
@@ -106,7 +105,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "07",
     content: "Vegeta is a proud Saiyan prince.",
     links: "",
     likes: {
@@ -121,7 +120,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "08",
     content: "Mikasa is a skilled soldier in the Survey Corps.",
     links: "",
     likes: {
@@ -137,7 +136,7 @@ export const posts = [
   },
 
   {
-    _id: uuid(),
+    _id: "09",
     content: "Saitama is a powerful hero with unmatched strength.",
     links:
       "https://res.cloudinary.com/dmmfomgzx/image/upload/v1686768680/saitama_or8dlb.jpg",
@@ -154,7 +153,7 @@ export const posts = [
   },
 
   {
-    _id: uuid(),
+    _id: "10",
     content: "Levi is a skilled captain in the Scout Regiment.",
     links:
       "https://res.cloudinary.com/dmmfomgzx/image/upload/v1686768881/levi_kvx1vy.jpg",
@@ -170,7 +169,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "11",
     content: "Hinata is determined to become a strong ninja like Naruto.",
     links:
       "https://res.cloudinary.com/dmmfomgzx/image/upload/v1686731469/hinata_i4kuv2.jpg",
@@ -187,7 +186,7 @@ export const posts = [
   },
 
   {
-    _id: uuid(),
+    _id: "12",
     content: "Roronoa Zoro is a swordsman and member of the Straw Hat Pirates.",
     links: "",
     likes: {
@@ -203,7 +202,7 @@ export const posts = [
   },
 
   {
-    _id: uuid(),
+    _id: "13",
     content:
       "Edward Elric is a talented alchemist on a quest for the Philosopher's Stone.",
     links: "",
@@ -220,7 +219,7 @@ export const posts = [
   },
 
   {
-    _id: uuid(),
+    _id: "14",
     content: "Itachi is a complex character with a tragic past.",
     links:
       "https://res.cloudinary.com/dmmfomgzx/image/upload/v1686765781/itachi_wfu8ca.jpg",
@@ -236,7 +235,7 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
+    _id: "15",
     content: "Kakashi is a former Hokage and a skilled ninja.",
     links: "",
     likes: {

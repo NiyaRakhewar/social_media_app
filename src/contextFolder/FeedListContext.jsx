@@ -1,9 +1,12 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import { initialState, reducer } from "../reducerFolder/reducer";
+import { useContext } from "react";
+import { AuthContext } from "./AuthContext";
 
 export const FeedListContext = createContext();
 export const FeedListProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { token, profile } = useContext(AuthContext);
 
   useEffect(() => {
     const getData = async () => {

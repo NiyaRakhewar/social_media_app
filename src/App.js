@@ -7,6 +7,8 @@ import { Login } from "./components/pages/Login";
 import { Signup } from "./components/pages/Signup";
 import { Home } from "./components/pages/Home.jsx";
 import { PrivateRoute } from "./components/PrivateRoute";
+import { BookmarkPage } from "./components/pages/BookmarkPage";
+import { ProfilePage } from "./components/Profile/ProfilePage";
 function App() {
   return (
     <div className="App">
@@ -15,6 +17,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/bookmarkpage" element={<BookmarkPage />} />
         <Route
           path="/home"
           element={
@@ -23,6 +26,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/profilepage" element={<ProfilePage />} />
       </Routes>
     </div>
   );

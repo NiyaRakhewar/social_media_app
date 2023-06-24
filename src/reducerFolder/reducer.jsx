@@ -5,14 +5,14 @@ export const initialState = {
   users: [],
   showPost: false,
   isLatest: true,
-  isLiked: false,
-  isComment: false,
-  isBookmarked: false,
   isOption: false,
 };
 
 export const reducer = (state, action) => {
   switch (action.type) {
+    case "NEW_POST":
+      return { ...state, feed: action.payload };
+
     case "ALL_FEEDS":
       return { ...state, feed: action.payload };
 
@@ -27,6 +27,29 @@ export const reducer = (state, action) => {
 
     case "LATEST":
       return { ...state, isLatest: action.payload };
+
+    case "SET_DATA_BY_LIKE":
+      return { ...state, feed: action.payload };
+
+    case "SET_DATA_BY_DISLIKE":
+      return { ...state, feed: action.payload };
+
+    case "SAVE_DATA_BY_BOOKMARK": {
+      return {
+        ...state,
+        users: state.users.map((data) =>
+          data.username === action.payload.username
+            ? { ...data, bookmarks: action.payload.bookmarks }
+            : data
+        ),
+      };
+    }
+
+    case "DELETE_POST":
+      return { ...state, feed: action.payload };
+
+    case "EDIT":
+      return { ...state, feed: action.payload };
 
     default:
       return state;

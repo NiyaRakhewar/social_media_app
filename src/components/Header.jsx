@@ -2,16 +2,19 @@ import React, { useContext } from "react";
 import "./styles/Header.css";
 import { MdOutlineExplore } from "react-icons/md";
 // import { FaBookmark, FaHome, FaRocket, FaSearch, FaUser } from "react-icons/fa";
-import { BiSearch, BiHomeAlt, BiSun, BiMoon, BiBookmark } from "react-icons/bi";
+import { BiSearch, BiHomeAlt, BiSun, BiBookmark } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 // import { BsBookmark } from "react-icons/bs";
 import web_logo from "../components/images/logo_new.png";
 import { AuthContext } from "../contextFolder/AuthContext";
 import { FeedListContext } from "../contextFolder/FeedListContext";
+import { useNavigate } from "react-router";
 export const Header = () => {
   const { profile } = useContext(AuthContext);
 
   const { state, dispatch } = useContext(FeedListContext);
+
+  const navigate = useNavigate();
 
   const filteredData = state.users.find(
     (user) => user.username === profile.username
@@ -27,16 +30,12 @@ export const Header = () => {
         </div>
       </div>
       <div className="icons-div">
-        {/* <FaSearch />
-            <FaRocket />
-            <FaHome />
-            <FaBookmark />
-            <FaUser /> */}
         <BiSearch className="icon" />
         <MdOutlineExplore className="icon" />
-        <BiBookmark className="icon" />
-        {/* <BsBookmark /> */}
-        {/* <BiRocket /> */}
+        <BiBookmark
+          className="icon"
+          onClick={() => navigate("/bookmarkpage")}
+        />
         <BiHomeAlt className="icon" />
         <BiSun className="icon" />
         {/* <BiMoon className="icon" /> */}|
@@ -58,7 +57,7 @@ export const Header = () => {
           }
           {state.isOption && (
             <div className="drop-down">
-              <button>Profile</button>
+              <button onClick={() => navigate("/profilepage")}>Profile</button>
               <button className="signout-btn">Sign Out</button>
             </div>
           )}

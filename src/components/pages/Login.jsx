@@ -14,7 +14,7 @@ export const Login = () => {
   // console.log("from", from);
   // const location = useLocation();
 
-  const { setToken, profile, setProfile } = useContext(AuthContext);
+  const { setToken, setProfile } = useContext(AuthContext);
 
   const handleGuestLogin = async () => {
     const credentials = {
@@ -38,11 +38,13 @@ export const Login = () => {
       navigate("/home");
       // console.log("location", location?.state?.from?.pathname);
       setToken(data.encodedToken);
-      setProfile({
-        ...profile,
-        username: data.foundUser.username,
-        password: data.foundUser.password,
-      });
+      setProfile(
+        data.foundUser
+        // ...profile,
+
+        // username: data.foundUser.username,
+        // password: data.foundUser.password,
+      );
     }
   };
 
