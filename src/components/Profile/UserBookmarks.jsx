@@ -2,27 +2,23 @@ import React, { useContext } from "react";
 import { FeedListContext } from "../../contextFolder/FeedListContext";
 import { AuthContext } from "../../contextFolder/AuthContext";
 import { PostForm } from "../PostForm";
+import "../styles/Feed.css";
 
 export const UserBookmarks = () => {
   const { state } = useContext(FeedListContext);
 
   const { profile } = useContext(AuthContext);
 
-  const currUser = state.users?.filter(
-    (user) => user.username === profile.username
+  const currUser = state.users?.find(({ _id }) => _id === profile._id);
+  const filteredData = state.feed?.filter(({ _id }) =>
+    currUser?.bookmarks.includes(_id)
   );
 
-  const filteredData = currUser?.bookmarks?.map((bookmarkId) => {
-    let data = state.feed?.filter((post) => post._id === bookmarkId);
-    return data;
-  });
+  console.log("filteredData user bookmarks", filteredData);
 
   return (
     <div className="outer-feed-container" style={{ justifyContent: "center" }}>
-      <div
-        className="inner-feed-container"
-        style={{ justifyContent: "center", width: "95%" }}
-      >
+      <div className="inner-feed-container" style={{ width: "95%" }}>
         {filteredData?.map((post) => {
           return <PostForm userpost={post} />;
         })}

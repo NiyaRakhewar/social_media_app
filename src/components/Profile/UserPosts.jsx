@@ -3,7 +3,7 @@ import { FeedListContext } from "../../contextFolder/FeedListContext";
 import { useContext } from "react";
 import { AuthContext } from "../../contextFolder/AuthContext";
 import { PostForm } from "../PostForm";
-
+import "../styles/Feed.css";
 export const UserPosts = () => {
   const { state } = useContext(FeedListContext);
 

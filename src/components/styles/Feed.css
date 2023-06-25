@@ -1,7 +1,7 @@
 .outer-feed-container {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   /* background-color: rgb(29, 82, 128); */
 }
 
@@ -43,7 +43,7 @@
 .card-content {
   /* border: 0.1px solid red; */
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   text-align: left;
   /* align-items: center; */
   flex-wrap: wrap;
@@ -93,7 +93,7 @@
 
 .card-name-date {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   gap: 1rem;
   width: 60%;
@@ -113,7 +113,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .username h3 {
@@ -163,7 +163,7 @@
 .drop-down-feed {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   position: absolute;
   border-radius: 0.2rem;
   background-color: #4f5155;
@@ -179,7 +179,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   align-self: flex-start;
 }

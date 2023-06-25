@@ -7,7 +7,7 @@ import { Bookmark } from "./Bookmark";
 import { BsEyeFill, BsShare } from "react-icons/bs";
 import { useContext } from "react";
 import { FeedListContext } from "../contextFolder/FeedListContext";
-
+import "./styles/Feed.css";
 export const PostForm = ({ userpost }) => {
   const { state } = useContext(FeedListContext);
   const { content, links, likes, views, comments, createdAt } = userpost;
@@ -15,7 +15,7 @@ export const PostForm = ({ userpost }) => {
     (user) => user?.username === userpost?.username
   );
   return (
-    <div className="card">
+    <div className="card" style={{ width: "100%" }}>
       <div className="card-info">
         <div className="card-name-date">
           <img src={userData?.avatar} alt="" className="profile-image" />

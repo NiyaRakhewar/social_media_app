@@ -43,7 +43,7 @@ export const posts = [
     content:
       "While the Love Hashira continues battling Zohakuten, she earns her Demon Slayer mark",
     links:
-      "https://res.cloudinary.com/dmmfomgzx/image/upload/v1686765782/mitsuri_qp25ho.png",
+      "https://c4.wallpaperflare.com/wallpaper/38/526/341/mitsuri-kanroji-kimetsu-no-yaiba-hd-wallpaper-preview.jpg",
     likes: {
       likeCount: 7,
       likedBy: [],

@@ -40,9 +40,83 @@
 .profile-card {
   align-self: center;
   width: 95%;
-  /* background-color: rgb(237, 80, 151); */
+  background-color: #383a3d;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
 }
 
+.background {
+  height: 100px;
+  width: 100%;
+  background-color: red;
+  background-image: linear-gradient(skyblue, grey);
+}
+
+.profile-data {
+  display: flex;
+  flex-direction: row;
+  width: 96%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-inform {
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-name {
+  font-size: larger;
+  margin-bottom: -10%;
+}
+
+.profile-username {
+  opacity: 0.7;
+}
+.profile-picture {
+  height: 150px;
+  border-radius: 50%;
+  margin-top: -10%;
+}
+
+.profile-bio {
+  width: 55%;
+  font-size: large;
+}
+
+.profile-website {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  color: rgb(23, 110, 153);
+}
+
+.profile-website:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.profile-count {
+  padding: 1% 1%;
+}
+
+.logout-btn {
+  padding: 0.8% 4%;
+  font-size: medium;
+  margin-bottom: 2%;
+  border-radius: 0.3rem;
+  background-color: #383a3d;
+  color: red;
+  border: 1px solid red;
+}
 .profile-navbar {
   font-size: larger;
   font-weight: 600;
@@ -59,6 +133,16 @@
 
 .profile-navbar div {
   align-self: center;
+}
+.highlight-post,
+.highlight-bookmarks {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: grey;
 }
 
 .post-container,
