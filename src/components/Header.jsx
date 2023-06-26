@@ -16,8 +16,8 @@ export const Header = () => {
 
   const navigate = useNavigate();
 
-  const filteredData = state.users.find(
-    (user) => user.username === profile.username
+  const filteredData = state?.users?.find(
+    (user) => user?.username === profile?.username
   );
   return (
     <div className="outer-header">
@@ -51,8 +51,8 @@ export const Header = () => {
                 dispatch({ type: "DROP_FOR_PROFILE", payload: !state.isOption })
               }
             >
-              <img alt="" src={filteredData.avatar} className="profile-pic" />
-              <h4>{filteredData.firstName}</h4>
+              <img alt="" src={filteredData?.avatar} className="profile-pic" />
+              <h4>{filteredData?.firstName}</h4>
               <IoIosArrowDown className="icon" />
             </div>
           }

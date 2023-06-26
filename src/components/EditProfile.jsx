@@ -9,15 +9,15 @@ export const EditProfile = ({ profileData }) => {
   const [showEdit, setShowEdit] = useState(false);
 
   const { token } = useContext(AuthContext);
-  const { state, dispatch } = useContext(FeedListContext);
+  const { dispatch } = useContext(FeedListContext);
 
-  console.log("state.users in editprofile", state.users);
+  // console.log("state.users in editprofile", state.users);
 
   const [editProfileData, setEditProfileData] = useState({
     ...profileData,
-    avatar: profileData.avatar,
-    bio: profileData.bio,
-    website: profileData.website,
+    avatar: profileData?.avatar,
+    bio: profileData?.bio,
+    website: profileData?.website,
   });
 
   //   console.log("editProfileData", editProfileData);

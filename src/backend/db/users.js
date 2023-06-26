@@ -9,12 +9,12 @@ export const users = [
   {
     _id: "001",
     firstName: "Hinata",
-    lastName: "Hyuga",
+    lastName: "Sama",
     username: "hinatahyuga",
     email: "hinatahyuga@moshimoshi.com",
     password: "hinatasama",
     bookmarks: [],
-    bio: "Member of the famous Hyuuga clan and posseses the powerful advanced bloodline, Byakugan",
+    bio: "Member of the famous Hyuga clan and posseses the powerful advanced bloodline, Byakugan",
     website: "https://niya-rakhewar-portfolio-007.netlify.app/",
     avatar:
       "https://res.cloudinary.com/dmmfomgzx/image/upload/v1686731469/hinata_i4kuv2.jpg",
