@@ -86,7 +86,7 @@ export const Post = () => {
               <MdOutlineFiberNew
                 className={state.isLatest ? "latest-icn-true" : "latest-icn"}
               />
-              <h4> Latest</h4>
+              Latest
             </h3>
             |
             <h3

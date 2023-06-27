@@ -9,6 +9,7 @@ import { Home } from "./components/pages/Home.jsx";
 import { PrivateRoute } from "./components/PrivateRoute";
 // import { BookmarkPage } from "./components/pages/BookmarkPage";
 import { ProfilePage } from "./components/Profile/ProfilePage";
+import { AnyProfile } from "./components/Profile/AnyProfile";
 function App() {
   return (
     <div className="App">
@@ -26,7 +27,8 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/profile/:username" element={<ProfilePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile/:username" element={<AnyProfile />} />
       </Routes>
     </div>
   );

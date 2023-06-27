@@ -2,16 +2,20 @@ import React, { useContext } from "react";
 import { Header } from "../Header";
 import "./profilepage.css";
 import { UserPosts } from "./UserPosts";
-import { UserBookmarks } from "./UserBookmarks";
-import { BsBookmarksFill, BsFileEarmarkPost } from "react-icons/bs";
+// import { UserBookmarks } from "./UserBookmarks";
+// import { BsBookmarksFill, BsFileEarmarkPost } from "react-icons/bs";
 import { useState } from "react";
 // import { AuthContext } from "../../contextFolder/AuthContext";
 import { TbWorld } from "react-icons/tb";
 import { FeedListContext } from "../../contextFolder/FeedListContext";
-import { EditProfile } from "../EditProfile";
+// import { EditProfile } from "../EditProfile";
 import { MdRemove } from "react-icons/md";
+import { useParams } from "react-router";
+import { BsFileEarmarkPost } from "react-icons/bs";
+import { FollowingBtn } from "./FollowingBtn";
+import { FollowBtn } from "./FollowBtn";
 
-export const ProfilePage = () => {
+export const AnyProfile = () => {
   const [show, setShow] = useState("userposts");
 
   const [showList, setShowList] = useState("");
@@ -21,23 +25,28 @@ export const ProfilePage = () => {
   const { state } = useContext(FeedListContext);
 
   // const { profile } = useContext(AuthContext);
+  const { username } = useParams();
 
   const profile = JSON.parse(localStorage.getItem("user"));
 
+  const newData = profile.following.map((user) => user.username);
+
+  const followBtn = newData.includes(username);
+
+  //   console.log("followbtn", followBtn);
+
   const filteredData = state.feed?.filter(
-    (post) => post?.username === profile?.username
+    (post) => post?.username === username
   );
 
-  const profileData = state.users?.find(
-    (user) => user.username === profile.username
-  );
+  const profileData = state.users?.find((user) => user.username === username);
 
   const handlerPost = () => {
     setShow("userposts");
   };
-  const handlerBookmarks = () => {
-    setShow("userbookmarks");
-  };
+  //   const handlerBookmarks = () => {
+  //     setShow("userbookmarks");
+  //   };
 
   const handlerFollowing = () => {
     if (profileData?.following.length !== 0) {
@@ -75,7 +84,13 @@ export const ProfilePage = () => {
                   src={profileData?.avatar}
                   alt=""
                 />
-                <EditProfile profileData={profileData} />
+                <div>
+                  <button
+                    className="edit-profile-btn"
+                    style={{ border: "none", width: "100px" }}
+                  ></button>
+                </div>
+                {/* <EditProfile profileData={profileData} /> */}
               </div>
               <p className="profile-bio">{profileData?.bio}</p>
               <div className="profile-website">
@@ -163,7 +178,7 @@ export const ProfilePage = () => {
                 </p>
               </div>
 
-              <button className="logout-btn">Logout</button>
+              <div>{followBtn ? <FollowingBtn /> : <FollowBtn />}</div>
             </div>
 
             <div className="profile-navbar">
@@ -177,7 +192,7 @@ export const ProfilePage = () => {
                 <p>POST</p>
               </div>
 
-              <div
+              {/* <div
                 onClick={handlerBookmarks}
                 className={
                   show === "userbookmarks"
@@ -187,10 +202,10 @@ export const ProfilePage = () => {
               >
                 <BsBookmarksFill />
                 <p>Bookmarks</p>
-              </div>
+              </div> */}
             </div>
-            {show === "userposts" && <UserPosts username={profile.username} />}
-            {show === "userbookmarks" && <UserBookmarks />}
+            {show === "userposts" && <UserPosts username={username} />}
+            {/* {show === "userbookmarks" && <UserBookmarks />} */}
           </div>
         </div>
       </div>

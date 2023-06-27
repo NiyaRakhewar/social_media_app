@@ -25,7 +25,7 @@ export const Feeds = () => {
         return dateB - dateA;
       });
 
-  console.log("state in feeds", state);
+  // console.log("state in feeds", state);
 
   return (
     <div className="outer-feed-container">
@@ -70,14 +70,14 @@ export const Feeds = () => {
                   <img
                     src={links}
                     alt=""
-                    className={links !== "" && "image-tag"}
+                    className={links !== "" ? "image-tag" : "k"}
                   />
                 </div>
               </div>
 
               <div className="card-icons">
                 <div>
-                  <Like post={post} />{" "}
+                  <Like post={post} />
                   {likes?.likeCount === 0 ? (
                     ""
                   ) : (

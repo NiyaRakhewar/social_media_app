@@ -1,24 +1,21 @@
 import React from "react";
 import { FeedListContext } from "../../contextFolder/FeedListContext";
 import { useContext } from "react";
-import { AuthContext } from "../../contextFolder/AuthContext";
+// import { AuthContext } from "../../contextFolder/AuthContext";
 import { PostForm } from "../PostForm";
 import "../styles/Feed.css";
-export const UserPosts = () => {
+export const UserPosts = ({ username }) => {
   const { state } = useContext(FeedListContext);
 
-  const { profile } = useContext(AuthContext);
+  // const { profile } = useContext(AuthContext);
 
-  const filteredData = state.feed?.filter(
-    (post) => post.username === profile.username
-  );
+  // const profile = JSON.parse(localStorage.getItem("user"));
+
+  const filteredData = state.feed?.filter((post) => post.username === username);
 
   return (
     <div className="outer-feed-container" style={{ justifyContent: "center" }}>
-      <div
-        className="inner-feed-container"
-        style={{ justifyContent: "center", width: "95%" }}
-      >
+      <div className="inner-feed-container" style={{ width: "95%" }}>
         {filteredData?.map((post, i) => {
           return <PostForm key={i} userpost={post} />;
         })}

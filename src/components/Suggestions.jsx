@@ -1,17 +1,23 @@
 import React, { useContext } from "react";
 import { FeedListContext } from "../contextFolder/FeedListContext";
 import "../components/styles/Suggestions.css";
-import { AuthContext } from "../contextFolder/AuthContext";
 import { useNavigate } from "react-router";
 export const Suggestions = () => {
   const { state } = useContext(FeedListContext);
 
-  const { profile } = useContext(AuthContext);
+  // const { profile } = useContext(AuthContext);
+
+  const profile = JSON.parse(localStorage.getItem("user"));
+
+  console.log("profile in sugg", profile);
 
   const navigate = useNavigate();
 
+  const newData = profile.following.map((user) => user.username);
+
   const filteredData = state.users.filter(
-    (user) => user.username !== profile.username
+    (user) =>
+      user.username !== profile.username && !newData.includes(user.username)
   );
 
   // console.log("sugg", state.users);
