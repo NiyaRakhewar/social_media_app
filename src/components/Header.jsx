@@ -58,7 +58,11 @@ export const Header = () => {
           }
           {state.isOption && (
             <div className="drop-down">
-              <button onClick={() => navigate("/profilepage")}>Profile</button>
+              <button
+                onClick={() => navigate(`/profile/${filteredData.username}`)}
+              >
+                Profile
+              </button>
               <button className="signout-btn">Sign Out</button>
             </div>
           )}
