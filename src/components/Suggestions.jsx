@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { FeedListContext } from "../contextFolder/FeedListContext";
 import "../components/styles/Suggestions.css";
 import { useNavigate } from "react-router";
+import { FollowBtn } from "./Profile/FollowBtn";
 export const Suggestions = () => {
   const { state } = useContext(FeedListContext);
 
@@ -9,7 +10,7 @@ export const Suggestions = () => {
 
   const profile = JSON.parse(localStorage.getItem("user"));
 
-  console.log("profile in sugg", profile);
+  // console.log("profile in sugg", profile);
 
   const navigate = useNavigate();
 
@@ -19,6 +20,10 @@ export const Suggestions = () => {
     (user) =>
       user.username !== profile.username && !newData.includes(user.username)
   );
+
+  // const handleFollow = () => {
+  //   <FollowBtn profileData={user} />;
+  // };
 
   // console.log("sugg", state.users);
   return (
@@ -41,8 +46,11 @@ export const Suggestions = () => {
               >
                 {firstName} {lastName}
               </p>
-
-              <button className="follow-btn"> Follow </button>
+              <FollowBtn className="follow-btn" profileData={user} />
+              {/* <button className="follow-btn" onClick={handleFollow}>
+                {" "}
+                Follow{" "}
+              </button> */}
             </div>
           );
         })}

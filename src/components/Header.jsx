@@ -19,6 +19,17 @@ export const Header = () => {
   const filteredData = state?.users?.find(
     (user) => user?.username === profile?.username
   );
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+
+  const handleProfile = () => {
+    dispatch({ type: "DROP_FOR_PROFILE", payload: !state.isOption });
+    navigate(`/profile`);
+  };
+
   return (
     <div className="outer-header">
       <div className="logo-div" onClick={() => navigate("/home")}>
@@ -31,7 +42,10 @@ export const Header = () => {
       </div>
       <div className="icons-div">
         <BiSearch className="icon" />
-        <MdOutlineExplore className="icon" />
+        <MdOutlineExplore
+          className="icon"
+          onClick={() => navigate("/explore")}
+        />
         {/* <BiBookmark
           className="icon"
           onClick={() => navigate("/bookmarkpage")}
@@ -58,8 +72,10 @@ export const Header = () => {
           }
           {state.isOption && (
             <div className="drop-down">
-              <button onClick={() => navigate(`/profile`)}>Profile</button>
-              <button className="signout-btn">Sign Out</button>
+              <button onClick={handleProfile}>Profile</button>
+              <button className="signout-btn" onClick={handleLogout}>
+                Sign Out
+              </button>
             </div>
           )}
         </div>

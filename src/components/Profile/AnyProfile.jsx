@@ -10,9 +10,9 @@ import { TbWorld } from "react-icons/tb";
 import { FeedListContext } from "../../contextFolder/FeedListContext";
 // import { EditProfile } from "../EditProfile";
 import { MdRemove } from "react-icons/md";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { BsFileEarmarkPost } from "react-icons/bs";
-import { FollowingBtn } from "./FollowingBtn";
+import { UnFollowBtn } from "./UnFollowBtn";
 import { FollowBtn } from "./FollowBtn";
 
 export const AnyProfile = () => {
@@ -32,6 +32,8 @@ export const AnyProfile = () => {
   const newData = profile.following.map((user) => user.username);
 
   const followBtn = newData.includes(username);
+
+  const navigate = useNavigate();
 
   //   console.log("followbtn", followBtn);
 
@@ -108,7 +110,13 @@ export const AnyProfile = () => {
                       <div className="profile-follow-outer-card">
                         <div className="profile-follow-card">
                           {profileData?.following?.map((user, i) => (
-                            <div key={i} className="follow-card">
+                            <div
+                              onClick={() =>
+                                navigate(`/profile/${user.username}`)
+                              }
+                              key={i}
+                              className="follow-card"
+                            >
                               <img
                                 src={user?.avatar}
                                 alt=""
@@ -146,7 +154,13 @@ export const AnyProfile = () => {
                         <div className="profile-follow-outer-card">
                           <div className="profile-follow-card">
                             {profileData?.followers?.map((user, i) => (
-                              <div key={i} className="follow-card">
+                              <div
+                                onClick={() =>
+                                  navigate(`/profile/${user.username}`)
+                                }
+                                key={i}
+                                className="follow-card"
+                              >
                                 <img
                                   src={user?.avatar}
                                   alt=""
@@ -178,7 +192,13 @@ export const AnyProfile = () => {
                 </p>
               </div>
 
-              <div>{followBtn ? <FollowingBtn /> : <FollowBtn />}</div>
+              <div>
+                {followBtn ? (
+                  <UnFollowBtn profileData={profileData} />
+                ) : (
+                  <FollowBtn profileData={profileData} />
+                )}
+              </div>
             </div>
 
             <div className="profile-navbar">

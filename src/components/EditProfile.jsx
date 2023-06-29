@@ -5,6 +5,8 @@ import "./styles/EditProfile.css";
 import { BsCamera } from "react-icons/bs";
 import { AuthContext } from "../contextFolder/AuthContext";
 import { FeedListContext } from "../contextFolder/FeedListContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const EditProfile = ({ profileData }) => {
   const [showEdit, setShowEdit] = useState(false);
 
@@ -22,6 +24,16 @@ export const EditProfile = ({ profileData }) => {
 
   //   console.log("editProfileData", editProfileData);
   const handleChangeDp = (event) => {
+    toast.success(`Gambre Gambre!! New Image`, {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = () => {
@@ -42,6 +54,16 @@ export const EditProfile = ({ profileData }) => {
   };
 
   const handleProfileUpdate = async (editProfileData) => {
+    toast.success(`Gambre Gambre!! Profile Edited `, {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
     const response = await fetch(`/api/users/edit`, {
       method: "POST",
       headers: {

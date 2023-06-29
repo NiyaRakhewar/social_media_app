@@ -18,7 +18,8 @@
   /* margin-left: -10%; */
   /* padding: 5px; */
   width: 100%;
-  max-height: 430px;
+  height: 100%;
+  max-height: 600px;
   /* color: black; */
   color: whitesmoke;
   /* background-color: whitesmoke; */
@@ -32,7 +33,7 @@
   justify-content: center;
   justify-content: space-between;
   align-items: center;
-  /* margin-top: 1%; */
+  margin-top: 1%;
   margin-left: 3%;
   /* gap: 3rem; */
   width: 95%;
@@ -49,7 +50,7 @@
   flex-wrap: wrap;
   margin-left: 2%;
   width: 96%;
-  height: 65%;
+  height: 90%;
 }
 
 .card-content p {
@@ -67,7 +68,7 @@
   margin: 0% auto;
   width: 99%;
   height: 80%;
-  object-fit: cover;
+  /* object-fit: fill; */
   /* border: 0.1px solid blue; */
 }
 .card-icons {

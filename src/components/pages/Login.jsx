@@ -3,20 +3,29 @@ import web_logo from "../images/logo_new.png";
 import { useNavigate } from "react-router";
 import "../styles/Login.css";
 import { AuthContext } from "../../contextFolder/AuthContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const Login = () => {
   const navigate = useNavigate();
 
-  // const location = useLocation();
-  // const from = location.state?.from || "/login";
-
-  // console.log("loc", location);
-
-  // console.log("from", from);
-  // const location = useLocation();
-
   const { setToken, setProfile } = useContext(AuthContext);
 
+  const handleLogin = () => {
+    navigate("/login");
+  };
+
   const handleGuestLogin = async () => {
+    toast.success(` Moshi Moshi !! `, {
+      autoClose: 1000,
+      position: "bottom-right",
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
     const credentials = {
       username: "hinatahyuga",
       password: "hinatasama",
@@ -71,7 +80,7 @@ export const Login = () => {
           </div>
 
           <div className="landing-links">
-            <button onClick={() => navigate("/login")}>Login</button>
+            <button onClick={handleLogin}>Login</button>
 
             <h3 onClick={handleGuestLogin}>Guest Login</h3>
 

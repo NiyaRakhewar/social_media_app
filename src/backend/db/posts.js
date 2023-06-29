@@ -171,8 +171,7 @@ export const posts = [
   {
     _id: "11",
     content: "Hinata is determined to become a strong ninja like Naruto.",
-    links:
-      "https://res.cloudinary.com/dmmfomgzx/image/upload/v1686731469/hinata_i4kuv2.jpg",
+    links: "https://mcdn.wallpapersafari.com/medium/19/87/fKI7Lo.jpg",
     likes: {
       likeCount: 7,
       likedBy: [],

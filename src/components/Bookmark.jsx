@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
 import { FeedListContext } from "../contextFolder/FeedListContext";
 import { AuthContext } from "../contextFolder/AuthContext";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const Bookmark = ({ post, user }) => {
   const { state, dispatch } = useContext(FeedListContext);
   const { token, profile } = useContext(AuthContext);
@@ -26,6 +27,17 @@ export const Bookmark = ({ post, user }) => {
       type: "SAVE_DATA_BY_BOOKMARK",
       payload: { bookmarks: data.bookmarks, username },
     });
+
+    toast(`Gambre Gambre!! Bookmarked ${username}`, {
+      position: "bottom-left",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   const bookmarkRemoveHandler = async (post) => {
@@ -40,6 +52,17 @@ export const Bookmark = ({ post, user }) => {
     dispatch({
       type: "SAVE_DATA_BY_BOOKMARK",
       payload: { bookmarks: data.bookmarks, username },
+    });
+
+    toast(`!! Removed Bookmark ${username}`, {
+      position: "bottom-left",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
     });
   };
 

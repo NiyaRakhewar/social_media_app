@@ -59,6 +59,49 @@ export const reducer = (state, action) => {
         ),
       };
 
+    case "ADD_FOLLOWER":
+      return {
+        ...state,
+        users: state.users.map((user) =>
+          user.username === action.payload.followUser.username
+            ? { ...user, followers: action.payload.followUser.followers }
+            : user
+        ),
+      };
+
+    case "ADD_FOLLOWING":
+      return {
+        ...state,
+        users: state.users.map((user) =>
+          action.payload.user.username === user.username
+            ? { ...user, following: action.payload.user.following }
+            : user
+        ),
+      };
+
+    case "REMOVE_FOLLOWER":
+      return {
+        ...state,
+        users: state.users.map((el) =>
+          el.username === action.payload.unfollowedUser.username
+            ? {
+                ...el,
+                followers: action.payload.unfollowedUser.followers,
+              }
+            : el
+        ),
+      };
+
+    case "REMOVE_FOLLOWING":
+      return {
+        ...state,
+        users: state.users.map((user) =>
+          action.payload.user.username === user.username
+            ? { ...user, following: action.payload.user.following }
+            : user
+        ),
+      };
+
     default:
       return state;
   }

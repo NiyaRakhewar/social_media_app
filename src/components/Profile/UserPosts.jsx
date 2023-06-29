@@ -17,7 +17,11 @@ export const UserPosts = ({ username }) => {
     <div className="outer-feed-container" style={{ justifyContent: "center" }}>
       <div className="inner-feed-container" style={{ width: "95%" }}>
         {filteredData?.map((post, i) => {
-          return <PostForm key={i} userpost={post} />;
+          return (
+            <div key={i}>
+              <PostForm userpost={post} />
+            </div>
+          );
         })}
       </div>
     </div>

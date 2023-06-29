@@ -85,6 +85,7 @@
   justify-content: center;
   gap: 1rem;
   width: 50%;
+
   /* background-color: rgb(80, 237, 88); */
 }
 
@@ -174,7 +175,7 @@
 }
 
 .anyProfile-follow-btn,
-.anyProfile-following-btn {
+.anyProfile-unfollow-btn {
   padding: 5px 10px;
   font-size: medium;
   margin-bottom: 5px;

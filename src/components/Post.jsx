@@ -8,9 +8,12 @@ import "./styles/Post.css";
 import { useState } from "react";
 // import { formatDate } from "../backend/utils/authUtils";
 import { v4 as uuid } from "uuid";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const Post = () => {
-  const { profile } = useContext(AuthContext);
+  // const { profile } = useContext(AuthContext);
+
+  const profile = JSON.parse(localStorage.getItem("user"));
 
   const { token } = useContext(AuthContext);
 
@@ -40,6 +43,17 @@ export const Post = () => {
 
     dispatch({ type: "NEW_POST", payload: data.posts });
     dispatch({ type: "SHOW_POST", payload: !state.showPost });
+
+    toast.success(`Arigato !! ${currentUser?.username} `, {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   const handlerChangeContent = (e) => {
@@ -71,8 +85,8 @@ export const Post = () => {
         <div className="card-new-post">
           <div className="card-info" onClick={clickHandlerNewPost}>
             <div className="card-name-date">
-              <img src={userData.avatar} alt="" className="profile-image" />
-              <p>What's on your mind, {userData.firstName}</p>
+              <img src={userData?.avatar} alt="" className="profile-image" />
+              <p>What's on your mind, {userData?.firstName}</p>
             </div>
             <SlPlus />
           </div>
@@ -97,19 +111,23 @@ export const Post = () => {
             </h3>
           </div>
         </div>
-        {state.showPost && (
+        {state?.showPost && (
           <div className="add-outer-container">
             <div className="add-container">
               <div className="edit-card">
                 <div className="edit-profile">
-                  <img src={userData.avatar} alt="" className="profile-image" />
+                  <img
+                    src={userData?.avatar}
+                    alt=""
+                    className="profile-image"
+                  />
                 </div>
                 <div className="edit-mini-card">
                   <div className="edit-content">
                     <textarea
                       name=""
                       contentEditable="true"
-                      className="text"
+                      className="textarea"
                       placeholder=" What's on your mind..."
                       onChange={(e) => handlerChangeContent(e)}
                     />

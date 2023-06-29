@@ -4,13 +4,13 @@ import { AuthContext } from "../../contextFolder/AuthContext";
 import { FeedListContext } from "../../contextFolder/FeedListContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-export const FollowBtn = ({ profileData }) => {
+export const UnFollowBtn = ({ profileData }) => {
   const { token } = useContext(AuthContext);
 
   const { dispatch } = useContext(FeedListContext);
 
-  const handleFollow = async (profileData) => {
-    const response = await fetch(`/api/users/follow/${profileData._id}`, {
+  const handleUnFollow = async (profileData) => {
+    const response = await fetch(`/api/users/unfollow/${profileData._id}`, {
       method: "POST",
       headers: {
         authorization: token,
@@ -20,19 +20,19 @@ export const FollowBtn = ({ profileData }) => {
     const data = await response.json();
 
     dispatch({
-      type: "ADD_FOLLOWER",
-      payload: { followUser: data.followUser },
+      type: "REMOVE_FOLLOWER",
+      payload: { unfollowedUser: data.followUser },
     });
 
     dispatch({
-      type: "ADD_FOLLOWING",
+      type: "REMOVE_FOLLOWING",
       payload: { user: data.user },
     });
 
-    // console.log("data in follow", data);
+    console.log("data in unfollow", data);
     localStorage.setItem("user", JSON.stringify(data.user));
 
-    toast.success(`Following `, {
+    toast.success(`Unfollow `, {
       position: "bottom-left",
       autoClose: 1000,
       hideProgressBar: false,
@@ -43,14 +43,13 @@ export const FollowBtn = ({ profileData }) => {
       theme: "dark",
     });
   };
-
   return (
     <div>
       <button
-        className="anyProfile-follow-btn "
-        onClick={() => handleFollow(profileData)}
+        className="anyProfile-unfollow-btn"
+        onClick={() => handleUnFollow(profileData)}
       >
-        Follow
+        Unfollow
       </button>
     </div>
   );

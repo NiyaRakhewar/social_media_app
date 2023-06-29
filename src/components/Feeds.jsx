@@ -7,23 +7,25 @@ import dayjs from "dayjs";
 import "dayjs/locale/en";
 import { Like } from "./Like";
 import { Bookmark } from "./Bookmark";
-import { AuthContext } from "../contextFolder/AuthContext";
+// import { AuthContext } from "../contextFolder/AuthContext";
 import { Options } from "./Options";
-export const Feeds = () => {
+export const Feeds = ({ filteredData }) => {
   const { state } = useContext(FeedListContext);
-  const { profile } = useContext(AuthContext);
+  // const { profile } = useContext(AuthContext);
 
-  const filteredData = !state.isLatest
-    ? state.feed?.sort((a, b) => {
-        const dateA = a.likes?.likeCount;
-        const dateB = b.likes?.likeCount;
-        return dateB - dateA;
-      })
-    : state.feed?.sort((a, b) => {
-        const dateA = new Date(a.createdAt);
-        const dateB = new Date(b.createdAt);
-        return dateB - dateA;
-      });
+  const profile = JSON.parse(localStorage.getItem("user"));
+
+  // const filteredData = !state.isLatest
+  //   ? state.feed?.sort((a, b) => {
+  //       const dateA = a.likes?.likeCount;
+  //       const dateB = b.likes?.likeCount;
+  //       return dateB - dateA;
+  //     })
+  //   : state.feed?.sort((a, b) => {
+  //       const dateA = new Date(a.createdAt);
+  //       const dateB = new Date(b.createdAt);
+  //       return dateB - dateA;
+  //     });
 
   // console.log("state in feeds", state);
 

@@ -10,6 +10,7 @@ import { TbWorld } from "react-icons/tb";
 import { FeedListContext } from "../../contextFolder/FeedListContext";
 import { EditProfile } from "../EditProfile";
 import { MdRemove } from "react-icons/md";
+import { useNavigate } from "react-router";
 
 export const ProfilePage = () => {
   const [show, setShow] = useState("userposts");
@@ -19,6 +20,8 @@ export const ProfilePage = () => {
   const [showCard, setShowCard] = useState(false);
 
   const { state } = useContext(FeedListContext);
+
+  const navigate = useNavigate();
 
   // const { profile } = useContext(AuthContext);
 
@@ -51,6 +54,11 @@ export const ProfilePage = () => {
       setShowList("followers");
     }
     setShowCard(!showCard);
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
   };
 
   return (
@@ -93,7 +101,13 @@ export const ProfilePage = () => {
                       <div className="profile-follow-outer-card">
                         <div className="profile-follow-card">
                           {profileData?.following?.map((user, i) => (
-                            <div key={i} className="follow-card">
+                            <div
+                              onClick={() =>
+                                navigate(`/profile/${user.username}`)
+                              }
+                              key={i}
+                              className="follow-card"
+                            >
                               <img
                                 src={user?.avatar}
                                 alt=""
@@ -131,7 +145,13 @@ export const ProfilePage = () => {
                         <div className="profile-follow-outer-card">
                           <div className="profile-follow-card">
                             {profileData?.followers?.map((user, i) => (
-                              <div key={i} className="follow-card">
+                              <div
+                                onClick={() =>
+                                  navigate(`/profile/${user.username}`)
+                                }
+                                key={i}
+                                className="follow-card"
+                              >
                                 <img
                                   src={user?.avatar}
                                   alt=""
@@ -163,7 +183,9 @@ export const ProfilePage = () => {
                 </p>
               </div>
 
-              <button className="logout-btn">Logout</button>
+              <button className="logout-btn" onClick={handleLogout}>
+                Logout
+              </button>
             </div>
 
             <div className="profile-navbar">
