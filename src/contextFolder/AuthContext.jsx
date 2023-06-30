@@ -6,17 +6,28 @@ export const AuthProvider = ({ children }) => {
   // const { state, dispatch } = useContext(FeedListContext);
 
   const encodedToken = localStorage.getItem("token");
-  const user = JSON.parse(localStorage.getItem("user")) || "";
+  const user = JSON.parse(localStorage?.getItem("user")) || "";
   const [token, setToken] = useState(encodedToken || "");
 
   // console.log("encoded AC", encodedToken);
 
   const [profile, setProfile] = useState(user);
 
+  const [signUpData, setSignUpData] = useState(user);
+
   // console.log(" profile", profile);
 
   return (
-    <AuthContext.Provider value={{ token, setToken, profile, setProfile }}>
+    <AuthContext.Provider
+      value={{
+        token,
+        setToken,
+        profile,
+        setProfile,
+        signUpData,
+        setSignUpData,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

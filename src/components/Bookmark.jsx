@@ -6,7 +6,9 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export const Bookmark = ({ post, user }) => {
   const { state, dispatch } = useContext(FeedListContext);
-  const { token, profile } = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
+
+  const profile = JSON.parse(localStorage.getItem("user"));
 
   const username = profile.username;
 
@@ -55,7 +57,7 @@ export const Bookmark = ({ post, user }) => {
     });
 
     toast(`!! Removed Bookmark ${username}`, {
-      position: "bottom-left",
+      position: "bottom-right",
       autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,

@@ -9,7 +9,7 @@ import "./styles/Edit.css";
 import { MdOutlineRemoveCircle } from "react-icons/md";
 
 export const EditPost = ({ post }) => {
-  const { state, dispatch } = useContext(FeedListContext);
+  const { dispatch } = useContext(FeedListContext);
   const { token, profile } = useContext(AuthContext);
   const [showPop, setShowPop] = useState(false);
 
@@ -19,11 +19,13 @@ export const EditPost = ({ post }) => {
     links: post.links,
   });
 
-  const currentUser = profile;
+  const userData = profile;
 
-  const userData = state?.users?.find(
-    (user) => user.username === currentUser.username
-  );
+  // const currentUser = profile;
+
+  // const userData = state?.users?.find(
+  //   (user) => user.username === currentUser.username
+  // );
 
   const handlerRemoveImage = () => {
     setEditContent({
@@ -57,10 +59,10 @@ export const EditPost = ({ post }) => {
     });
     const data = await response?.json();
 
-    dispatch({ type: "EDIT", payload: data.posts });
+    dispatch({ type: "EDIT", payload: data?.posts });
 
     setShowPop(!showPop);
-    console.log("data in edit", data);
+    // console.log("data in edit", data);
   };
   return (
     <div>
@@ -73,7 +75,7 @@ export const EditPost = ({ post }) => {
           <div className="add-container">
             <div className="edit-card">
               <div className="edit-profile">
-                <img src={userData.avatar} alt="" className="profile-image" />
+                <img src={userData?.avatar} alt="" className="profile-image" />
               </div>
               <div className="edit-mini-card">
                 <div className="edit-content">

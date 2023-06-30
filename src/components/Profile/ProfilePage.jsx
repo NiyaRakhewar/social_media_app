@@ -31,10 +31,11 @@ export const ProfilePage = () => {
     (post) => post?.username === profile?.username
   );
 
-  const profileData = state.users?.find(
-    (user) => user.username === profile.username
-  );
+  // const profileData = state.users?.find(
+  //   (user) => user.username === profile.username
+  // );
 
+  const profileData = profile;
   const handlerPost = () => {
     setShow("userposts");
   };

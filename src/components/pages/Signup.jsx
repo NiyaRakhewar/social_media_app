@@ -1,9 +1,84 @@
-import React from "react";
+import React, { useContext } from "react";
 import web_logo from "../images/logo_new.png";
 import { useNavigate } from "react-router";
 import "../styles/Signup.css";
+import { AuthContext } from "../../contextFolder/AuthContext";
+import { AvatarGenerator } from "random-avatar-generator";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const Signup = () => {
   const navigate = useNavigate();
+
+  const { setToken, setProfile, signUpData, setSignUpData } =
+    useContext(AuthContext);
+
+  const handleInput = (e, fieldName) => {
+    const { value } = e.target;
+    setSignUpData((prevData) => ({
+      ...prevData,
+      [fieldName]: value,
+    }));
+  };
+
+  const generator = new AvatarGenerator();
+
+  const handleSignUp = async () => {
+    const validationErrors = {};
+
+    if (!signUpData.firstName) {
+      validationErrors.firstName = "First name is required";
+    }
+
+    if (!signUpData.lastName) {
+      validationErrors.lastName = "Last name is required";
+    }
+
+    if (!signUpData.username) {
+      validationErrors.email = "Email is required";
+    }
+
+    if (!signUpData.password) {
+      validationErrors.password = "Password is required";
+    }
+
+    try {
+      const avatar = generator.generateRandomAvatar(signUpData.firstName);
+      // const avatar =
+      //   "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/813px-Unknown_person.jpg?20200423155822";
+
+      const response = await fetch("/api/auth/signup", {
+        method: "POST",
+        body: JSON.stringify({
+          firstName: signUpData.firstName,
+          lastName: signUpData.lastName,
+          username: signUpData.username,
+          password: signUpData.password,
+          website: "niya-portfolio",
+          avatar: avatar,
+        }),
+      });
+      const data = await response.json();
+      localStorage.setItem("token", data?.encodedToken);
+      localStorage.setItem("user", JSON.stringify(data?.createdUser));
+      setToken(data.encodedToken);
+      setProfile(data.createdUser);
+      navigate("/home");
+
+      toast(` Welcome ${signUpData.firstName} ${signUpData.lastName}`, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } catch (err) {
+      alert(err);
+    }
+  };
+
   return (
     <div className="main-landing-container">
       <div className="landing-container">
@@ -17,31 +92,48 @@ export const Signup = () => {
           <div className="landing-text">
             <div>
               <label>First Name</label>
-              <input placeholder="First Name" />
+              <input
+                type="text"
+                placeholder="First Name"
+                onChange={(e) => handleInput(e, "firstName")}
+              />
             </div>
 
             <div>
               <label>Last Name</label>
-              <input placeholder="Last Name" />
+              <input
+                type="text"
+                placeholder="Last Name"
+                onChange={(e) => handleInput(e, "lastName")}
+              />
             </div>
 
             <div>
+              <label>Username</label>
+              <input
+                type="text"
+                placeholder="Confirm Password"
+                onChange={(e) => handleInput(e, "username")}
+              />
+            </div>
+            <div>
               <label>Email</label>
-              <input placeholder="weeb@moshimoshi.com" />
+              <input
+                placeholder="weeb@moshimoshi.com"
+                onChange={(e) => handleInput(e, "email")}
+              />
             </div>
             <div>
               <label>Password</label>
-              <input placeholder="Password" />
-            </div>
-
-            <div>
-              <label>Confirm Password</label>
-              <input placeholder="Confirm Password" />
+              <input
+                placeholder="GambreGambre"
+                onChange={(e) => handleInput(e, "password")}
+              />
             </div>
           </div>
 
           <div className="landing-links">
-            <button>Sign Up</button>
+            <button onClick={handleSignUp}>Sign Up</button>
 
             <div className="text-login">
               <p>Already have an account ?</p>

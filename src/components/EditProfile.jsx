@@ -73,7 +73,7 @@ export const EditProfile = ({ profileData }) => {
     });
     const data = await response?.json();
 
-    dispatch({ type: "EDIT_USER", payload: data.user });
+    dispatch({ type: "EDIT_USER", payload: data?.user });
     setShowEdit(!showEdit);
   };
 

@@ -29,7 +29,8 @@ export const UnFollowBtn = ({ profileData }) => {
       payload: { user: data.user },
     });
 
-    console.log("data in unfollow", data);
+    // console.log("data in unfollow", data);
+
     localStorage.setItem("user", JSON.stringify(data.user));
 
     toast.success(`Unfollow `, {

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { FeedListContext } from "../contextFolder/FeedListContext";
 import { BiComment } from "react-icons/bi";
 import { BsEyeFill, BsShare } from "react-icons/bs";
 import "../components/styles/Feed.css";
@@ -9,6 +8,7 @@ import { Like } from "./Like";
 import { Bookmark } from "./Bookmark";
 // import { AuthContext } from "../contextFolder/AuthContext";
 import { Options } from "./Options";
+import { FeedListContext } from "../contextFolder/FeedListContext";
 export const Feeds = ({ filteredData }) => {
   const { state } = useContext(FeedListContext);
   // const { profile } = useContext(AuthContext);
@@ -34,6 +34,8 @@ export const Feeds = ({ filteredData }) => {
       <div className="inner-feed-container">
         {filteredData?.map((post, i) => {
           const { content, links, likes, views, comments, createdAt } = post;
+
+          // const userData = profile;
 
           const userData = state?.users?.find(
             (user) => user?.username === post?.username

@@ -19,11 +19,11 @@ export const Post = () => {
 
   const { state, dispatch } = useContext(FeedListContext);
 
-  const currentUser = profile;
+  // const currentUser = profile;
 
-  const userData = state.users?.find(
-    (user) => user.username === currentUser.username
-  );
+  // const userData = state.users?.find(
+  //   (user) => user.username === currentUser.username
+  // );
 
   const [newContent, setNewContent] = useState({
     _id: uuid(),
@@ -44,7 +44,7 @@ export const Post = () => {
     dispatch({ type: "NEW_POST", payload: data.posts });
     dispatch({ type: "SHOW_POST", payload: !state.showPost });
 
-    toast.success(`Arigato !! ${currentUser?.username} `, {
+    toast.success(`Arigato !! ${profile?.username} `, {
       position: "bottom-right",
       autoClose: 1000,
       hideProgressBar: false,
@@ -85,8 +85,8 @@ export const Post = () => {
         <div className="card-new-post">
           <div className="card-info" onClick={clickHandlerNewPost}>
             <div className="card-name-date">
-              <img src={userData?.avatar} alt="" className="profile-image" />
-              <p>What's on your mind, {userData?.firstName}</p>
+              <img src={profile?.avatar} alt="" className="profile-image" />
+              <p>What's on your mind, {profile?.firstName}</p>
             </div>
             <SlPlus />
           </div>
@@ -116,11 +116,7 @@ export const Post = () => {
             <div className="add-container">
               <div className="edit-card">
                 <div className="edit-profile">
-                  <img
-                    src={userData?.avatar}
-                    alt=""
-                    className="profile-image"
-                  />
+                  <img src={profile?.avatar} alt="" className="profile-image" />
                 </div>
                 <div className="edit-mini-card">
                   <div className="edit-content">

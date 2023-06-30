@@ -8,7 +8,7 @@
 .inner-feed-container {
   width: 80%;
   display: grid;
-  gap: 0.5rem;
+  gap: 0.7rem;
 }
 
 .card {
@@ -50,7 +50,7 @@
   flex-wrap: wrap;
   margin-left: 2%;
   width: 96%;
-  height: 90%;
+  height: 80%;
 }
 
 .card-content p {
@@ -67,7 +67,7 @@
   align-items: center; */
   margin: 0% auto;
   width: 99%;
-  height: 80%;
+  height: 100%;
   /* object-fit: fill; */
   /* border: 0.1px solid blue; */
 }
@@ -89,7 +89,7 @@
   /* margin: %; */
   margin-top: 0%;
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
 
 .card-name-date {

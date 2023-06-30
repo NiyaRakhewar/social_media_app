@@ -9,8 +9,10 @@
 .main {
   grid-area: m;
   width: 850px;
+  min-height: 1000px;
   /* background-color: rgb(224, 237, 80); */
   margin: 0 5%;
+  margin-bottom: 10%;
 }
 
 .aside {

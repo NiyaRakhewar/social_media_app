@@ -5,15 +5,19 @@ import { Like } from "./Like";
 import { BiComment } from "react-icons/bi";
 import { Bookmark } from "./Bookmark";
 import { BsEyeFill, BsShare } from "react-icons/bs";
-import { useContext } from "react";
-import { FeedListContext } from "../contextFolder/FeedListContext";
 import "./styles/Feed.css";
 export const PostForm = ({ userpost }) => {
-  const { state } = useContext(FeedListContext);
+  // const { state } = useContext(FeedListContext);
+
+  const profile = JSON.parse(localStorage.getItem("user"));
+
+  // const userData = state?.users?.find(
+  //   (user) => user?.username === userpost?.username
+  // );
+  const userData = profile;
+
   const { content, links, likes, views, comments, createdAt } = userpost;
-  const userData = state?.users?.find(
-    (user) => user?.username === userpost?.username
-  );
+
   return (
     <div className="card" style={{ width: "100%" }}>
       <div className="card-info">

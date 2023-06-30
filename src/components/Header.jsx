@@ -6,19 +6,21 @@ import { BiSearch, BiHomeAlt } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 // import { BsBookmark } from "react-icons/bs";
 import web_logo from "../components/images/logo_new.png";
-import { AuthContext } from "../contextFolder/AuthContext";
+// import { AuthContext } from "../contextFolder/AuthContext";
 import { FeedListContext } from "../contextFolder/FeedListContext";
 import { useNavigate } from "react-router";
 export const Header = () => {
-  const { profile } = useContext(AuthContext);
+  // const { profile } = useContext(AuthContext);
+
+  const profile = JSON.parse(localStorage.getItem("user"));
 
   const { state, dispatch } = useContext(FeedListContext);
 
   const navigate = useNavigate();
 
-  const filteredData = state?.users?.find(
-    (user) => user?.username === profile?.username
-  );
+  // const filteredData = state?.users?.find(
+  //   (user) => user?.username === profile?.username
+  // );
 
   const handleLogout = () => {
     localStorage.clear();
@@ -65,8 +67,8 @@ export const Header = () => {
                 dispatch({ type: "DROP_FOR_PROFILE", payload: !state.isOption })
               }
             >
-              <img alt="" src={filteredData?.avatar} className="profile-pic" />
-              <h4>{filteredData?.firstName}</h4>
+              <img alt="" src={profile?.avatar} className="profile-pic" />
+              <h4>{profile?.firstName}</h4>
               <IoIosArrowDown className="icon" />
             </div>
           }

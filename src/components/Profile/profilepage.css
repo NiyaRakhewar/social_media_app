@@ -61,7 +61,8 @@
 .profile-page-outer-container {
   grid-area: main;
   width: 100%;
-  /* height: 700px; */
+  height: 1000px;
+  margin-bottom: 10%;
   /* background-color: rgb(224, 237, 80); */
   display: flex;
   flex-direction: column;
