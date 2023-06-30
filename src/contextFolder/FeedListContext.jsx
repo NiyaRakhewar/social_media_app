@@ -14,7 +14,7 @@ export const FeedListProvider = ({ children }) => {
         const response = await fetch("/api/posts");
         const data = await response.json();
 
-        dispatch({ type: "ALL_FEEDS", payload: data.posts });
+        dispatch({ type: "ALL_FEEDS", payload: data?.posts });
         // console.log(data);
       } catch (error) {
         console.error(error);
@@ -29,7 +29,7 @@ export const FeedListProvider = ({ children }) => {
         const response = await fetch("/api/users");
         const data = await response.json();
 
-        dispatch({ type: "ALL_USERS", payload: data.users });
+        dispatch({ type: "ALL_USERS", payload: data?.users });
         // console.log("users", data);
       } catch (error) {
         console.error(error);

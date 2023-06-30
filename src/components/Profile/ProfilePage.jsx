@@ -104,7 +104,7 @@ export const ProfilePage = () => {
                           {profileData?.following?.map((user, i) => (
                             <div
                               onClick={() =>
-                                navigate(`/profile/${user.username}`)
+                                navigate(`/profile/${user?.username}`)
                               }
                               key={i}
                               className="follow-card"
@@ -148,7 +148,7 @@ export const ProfilePage = () => {
                             {profileData?.followers?.map((user, i) => (
                               <div
                                 onClick={() =>
-                                  navigate(`/profile/${user.username}`)
+                                  navigate(`/profile/${user?.username}`)
                                 }
                                 key={i}
                                 className="follow-card"
@@ -212,8 +212,10 @@ export const ProfilePage = () => {
                 <p>Bookmarks</p>
               </div>
             </div>
-            {show === "userposts" && <UserPosts username={profile.username} />}
-            {show === "userbookmarks" && <UserBookmarks />}
+            {show === "userposts" && <UserPosts username={profile?.username} />}
+            {show === "userbookmarks" && (
+              <UserBookmarks userIdd={profile?._id} />
+            )}
           </div>
         </div>
       </div>

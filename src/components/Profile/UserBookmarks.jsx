@@ -4,16 +4,16 @@ import { FeedListContext } from "../../contextFolder/FeedListContext";
 import { PostForm } from "../PostForm";
 import "../styles/Feed.css";
 
-export const UserBookmarks = () => {
+export const UserBookmarks = ({ userId }) => {
   const { state } = useContext(FeedListContext);
 
   // const { profile } = useContext(AuthContext);
 
   const profile = JSON.parse(localStorage.getItem("user"));
 
-  const currUser = profile;
+  // const currUser = profile;
 
-  // const currUser = state.users?.find(({ _id }) => _id === profile._id);
+  const currUser = state.users?.find(({ _id }) => _id === profile._id);
   const filteredData = state.feed?.filter(({ _id }) =>
     currUser?.bookmarks.includes(_id)
   );

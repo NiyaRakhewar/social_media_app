@@ -4,7 +4,7 @@ import { FeedListContext } from "../contextFolder/FeedListContext";
 import { AuthContext } from "../contextFolder/AuthContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-export const Bookmark = ({ post, user }) => {
+export const Bookmark = ({ post }) => {
   const { state, dispatch } = useContext(FeedListContext);
   const { token } = useContext(AuthContext);
 
