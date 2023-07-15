@@ -163,7 +163,7 @@ export const Login = () => {
             </div>
           </div> */}
 
-          <form action="" className="signup-input" onSubmit={handleSubmit}>
+          <form action="" className="login-input" onSubmit={handleSubmit}>
             <div className="signup-input-username">
               <label htmlFor="">UserName</label>
               <input
@@ -179,7 +179,7 @@ export const Login = () => {
               <span className="error-username">{errors.username}</span>
             )}
 
-            <div className="signup-input-password">
+            <div className="login-input-password">
               <label htmlFor="">Password</label>
               <div className="password-container">
                 <input
