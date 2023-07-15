@@ -1,20 +1,21 @@
 import dayjs from "dayjs";
-import React from "react";
+import React, { useContext } from "react";
 import { Options } from "./Options";
 import { Like } from "./Like";
 import { BiComment } from "react-icons/bi";
 import { Bookmark } from "./Bookmark";
 import { BsEyeFill, BsShare } from "react-icons/bs";
 import "./styles/Feed.css";
+import { FeedListContext } from "../contextFolder/FeedListContext";
 export const PostForm = ({ userpost }) => {
-  // const { state } = useContext(FeedListContext);
+  const { state } = useContext(FeedListContext);
 
-  const profile = JSON.parse(localStorage.getItem("user"));
+  // const profile = JSON.parse(localStorage.getItem("user"));
 
-  // const userData = state?.users?.find(
-  //   (user) => user?.username === userpost?.username
-  // );
-  const userData = profile;
+  const userData = state?.users?.find(
+    (user) => user?.username === userpost?.username
+  );
+  // const userData = profile;
 
   const { content, links, likes, views, comments, createdAt } = userpost;
 

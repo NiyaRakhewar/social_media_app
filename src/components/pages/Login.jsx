@@ -1,17 +1,83 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import web_logo from "../images/logo_new.png";
 import { useNavigate } from "react-router";
 import "../styles/Login.css";
 import { AuthContext } from "../../contextFolder/AuthContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ErrorContext } from "../../contextFolder/ErrorContext";
+import { Link } from "react-router-dom";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+
 export const Login = () => {
-  const navigate = useNavigate();
+  const [loginData, setLoginData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const { errors, setErrors } = useContext(ErrorContext);
+  // const location = useLocation();
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const { setToken, setProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate("/login");
+  const handleLogin = async () => {
+    const validationErrors = {};
+
+    if (!loginData.username) {
+      validationErrors.username = "Username is required";
+    }
+
+    if (!loginData.password) {
+      validationErrors.password = "Password is required";
+    }
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    const response = await fetch("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify({
+        username: loginData.username,
+        password: loginData.password,
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data, "login");
+
+    if (data.encodedToken) {
+      localStorage.setItem("token", data.encodedToken);
+      localStorage.setItem("user", JSON.stringify(data.foundUser));
+      navigate("/login");
+      setToken(data.encodedToken);
+      setProfile(data.foundUser);
+      toast.success("Successfully logged in ", {
+        autoClose: 1000,
+        position: "bottom-right",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } else {
+      toast.error("Wrong Credentials", {
+        autoClose: 1000,
+        position: "top-right",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
   };
 
   const handleGuestLogin = async () => {
@@ -57,6 +123,11 @@ export const Login = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleLogin();
+  };
+
   return (
     <div className="main-landing-container">
       <div className="landing-container">
@@ -66,7 +137,7 @@ export const Login = () => {
           <div className="pagename">
             <h1>Login</h1>
           </div>
-
+          {/* 
           <div className="landing-text">
             <div className="email">
               <label>Email</label>
@@ -90,7 +161,69 @@ export const Login = () => {
                 Sign up !
               </p>
             </div>
-          </div>
+          </div> */}
+
+          <form action="" className="signup-input" onSubmit={handleSubmit}>
+            <div className="signup-input-username">
+              <label htmlFor="">UserName</label>
+              <input
+                type="text"
+                placeholder="gabbarsingh"
+                value={loginData.username}
+                onChange={(e) =>
+                  setLoginData({ ...loginData, username: e.target.value })
+                }
+              />
+            </div>
+            {errors.username && (
+              <span className="error-username">{errors.username}</span>
+            )}
+
+            <div className="signup-input-password">
+              <label htmlFor="">Password</label>
+              <div className="password-container">
+                <input
+                  type={showPassword ? "password" : "text"}
+                  className="password"
+                  placeholder="KitneAadmiThe@3"
+                  value={loginData.password}
+                  onChange={(e) =>
+                    setLoginData({ ...loginData, password: e.target.value })
+                  }
+                />
+                {showPassword ? (
+                  <AiFillEyeInvisible
+                    className="eye"
+                    onClick={() => setShowPassword(false)}
+                  />
+                ) : (
+                  <AiFillEye
+                    className="eye"
+                    onClick={() => setShowPassword(true)}
+                  />
+                )}
+              </div>
+            </div>
+            {errors.password && (
+              <span className="error-password">{errors.password}</span>
+            )}
+            <div className="login-button-container">
+              <button className="login-btn" type="submit">
+                Login
+              </button>
+              <button
+                className="guest-btn"
+                type="button"
+                onClick={handleGuestLogin}
+              >
+                Guest Mode
+              </button>
+            </div>
+
+            <p>
+              Don't have an account? <Link to="/signup">Signup</Link>
+            </p>
+          </form>
         </div>
       </div>
 

@@ -73,8 +73,14 @@ export const EditProfile = ({ profileData }) => {
     });
     const data = await response?.json();
 
+    console.log("editProfile", data.user);
+
     dispatch({ type: "EDIT_USER", payload: data?.user });
     setShowEdit(!showEdit);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -86,7 +92,7 @@ export const EditProfile = ({ profileData }) => {
         Edit Profile
       </button>
       {showEdit && (
-        <div className="edit-profile-outer-container">
+        <form className="edit-profile-outer-container" onSubmit={handleSubmit}>
           <div className="edit-profile-inner-container">
             <div className="edit-profile-card">
               <div className="edit-profile-photo-container">
@@ -134,7 +140,7 @@ export const EditProfile = ({ profileData }) => {
               </button>
             </div>
           </div>
-        </div>
+        </form>
       )}
     </div>
   );

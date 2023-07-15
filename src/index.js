@@ -7,6 +7,7 @@ import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import { AuthProvider } from "./contextFolder/AuthContext";
 import { FeedListProvider } from "./contextFolder/FeedListContext";
+import { ErrorProvider } from "./contextFolder/ErrorContext";
 
 // Call make Server
 makeServer();
@@ -22,7 +23,9 @@ root.render(
     <Router>
       <AuthProvider>
         <FeedListProvider>
-          <App />
+          <ErrorProvider>
+            <App />
+          </ErrorProvider>
         </FeedListProvider>
       </AuthProvider>
     </Router>

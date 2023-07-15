@@ -112,7 +112,7 @@ export const Signup = () => {
               <label>Username</label>
               <input
                 type="text"
-                placeholder="Confirm Password"
+                placeholder="username"
                 onChange={(e) => handleInput(e, "username")}
               />
             </div>
@@ -126,7 +126,7 @@ export const Signup = () => {
             <div>
               <label>Password</label>
               <input
-                placeholder="GambreGambre"
+                placeholder="password"
                 onChange={(e) => handleInput(e, "password")}
               />
             </div>

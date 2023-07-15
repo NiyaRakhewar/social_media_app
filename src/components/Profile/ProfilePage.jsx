@@ -31,11 +31,11 @@ export const ProfilePage = () => {
     (post) => post?.username === profile?.username
   );
 
-  // const profileData = state.users?.find(
-  //   (user) => user.username === profile.username
-  // );
+  const profileData = state.users?.find(
+    (user) => user.username === profile.username
+  );
 
-  const profileData = profile;
+  // const profileData = profile;
   const handlerPost = () => {
     setShow("userposts");
   };
@@ -212,9 +212,11 @@ export const ProfilePage = () => {
                 <p>Bookmarks</p>
               </div>
             </div>
-            {show === "userposts" && <UserPosts username={profile?.username} />}
+            {show === "userposts" && (
+              <UserPosts username={profileData?.username} />
+            )}
             {show === "userbookmarks" && (
-              <UserBookmarks userIdd={profile?._id} />
+              <UserBookmarks userIdd={profileData?._id} />
             )}
           </div>
         </div>

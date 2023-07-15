@@ -11,6 +11,8 @@ export const UserPosts = ({ username }) => {
 
   // const profile = JSON.parse(localStorage.getItem("user"));
 
+  console.log("userpost", username);
+
   const filteredData = state.feed?.filter((post) => post.username === username);
 
   return (
