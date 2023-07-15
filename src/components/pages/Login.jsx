@@ -164,8 +164,8 @@ export const Login = () => {
           </div> */}
 
           <form action="" className="login-input" onSubmit={handleSubmit}>
-            <div className="signup-input-username">
-              <label htmlFor="">UserName</label>
+            <div className="login-input-username">
+              <label htmlFor="">UserName : </label>
               <input
                 type="text"
                 placeholder="gabbarsingh"
@@ -180,7 +180,7 @@ export const Login = () => {
             )}
 
             <div className="login-input-password">
-              <label htmlFor="">Password</label>
+              <label htmlFor="">Password : </label>
               <div className="password-container">
                 <input
                   type={showPassword ? "password" : "text"}
